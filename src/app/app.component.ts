@@ -1,13 +1,15 @@
 import { CommonModule } from "@angular/common";
 import { Component } from "@angular/core";
 import { RouterOutlet } from "@angular/router";
-import { CounterComponent } from "./components/counter/counter.component";
-import { TodoListComponent } from "./components/todo-list/todo-list.component";
+import { PhoneComponent } from "./components/phone/phone.component";
 
 @Component({
   selector: "app-root",
-  imports: [RouterOutlet, CounterComponent, CommonModule, TodoListComponent],
+  imports: [RouterOutlet, CommonModule, PhoneComponent],
   templateUrl: "./app.component.html",
   styles: [],
 })
-export class AppComponent {}
+export class AppComponent {
+  imageUrl = "https://img.daisyui.com/images/stock/453966.webp";
+  alt = "wallpaper";
+}
