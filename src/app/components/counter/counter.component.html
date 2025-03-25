@@ -1,0 +1,7 @@
+<h1 class="page-title">Counter component</h1>
+<button class="btn" (click)="decrement()">-</button>
+<!-- <span [style.color]="isZeroColor()" class="text-2xl">{{ counter() }}</span> -->
+<span class="text-2xl" [ngClass]="isZeroColor()">{{ counter() }}</span>
+<button class="btn" (click)="increment()">+</button>
+
+<button *ngIf="!isZero()" class="btn" (click)="reset()">reset</button>
