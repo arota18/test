@@ -1,0 +1,22 @@
+<div
+  role="alert"
+  class="alert alert-vertical sm:alert-horizontal"
+  [ngClass]="{
+    'alert-info': variant === 'info',
+    'alert-success': variant === 'success',
+    'alert-error': variant === 'error',
+  }"
+>
+  <app-icon-variant [variant]="variant"></app-icon-variant>
+
+  <!-- Contenuto -->
+  <div>
+    <ng-content></ng-content>
+  </div>
+  <div>
+    <button class="btn btn-sm" (click)="onDeny.emit()">{{ denyLabel }}</button>
+    <button class="btn btn-sm btn-primary" (click)="onConfirm.emit()">
+      {{ confirmLabel }}
+    </button>
+  </div>
+</div>

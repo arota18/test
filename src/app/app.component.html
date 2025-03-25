@@ -5,5 +5,56 @@
   <!-- <app-phone [alt]="alt" [src]="imageUrl" mostraAlt size="xl"></app-phone> -->
   <!-- <app-timeline [timelineItems]="timelineItems" vertical></app-timeline>
   <app-timeline [timelineItems]="timelineItems"></app-timeline> -->
+  <div class="flex flex-col gap-4">
+    <app-alert
+      (onDeny)="onDenyHandler()"
+      (onConfirm)="onConfirmHandler()"
+      confirmLabel="Accetta"
+      denyLabel="Rifiuta"
+    >
+      <div class="flex flex-col gap-2">
+        <span>Mario</span>
+        <strong>Luigi</strong>
+        <em>Paolo</em>
+      </div>
+    </app-alert>
+
+    <app-alert
+      (onDeny)="onDenyHandler()"
+      (onConfirm)="onConfirmHandler()"
+      confirmLabel="Accetta"
+      denyLabel="Rifiuta"
+      variant="info"
+    >
+      <div class="flex flex-col gap-2">
+        <button class="btn btn-primary">Pulsante 1</button>
+        <button class="btn btn-primary">Pulsante 2</button>
+      </div>
+    </app-alert>
+
+    <app-alert
+      (onDeny)="onDenyHandler()"
+      (onConfirm)="onConfirmHandler()"
+      confirmLabel="Accetta"
+      denyLabel="Rifiuta"
+      variant="success"
+    >
+      <p class="font-bold">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum harum,
+        asperiores consectetur excepturi veritatis quo.
+      </p>
+    </app-alert>
+
+    <app-alert
+      (onDeny)="onDenyHandler()"
+      (onConfirm)="onConfirmHandler()"
+      confirmLabel="Accetta"
+      variant="error"
+    ></app-alert>
+  </div>
 </div>
 <router-outlet />
+
+<!-- Esercizio: Creare nuova input che rappresenta le "varianti" dell'alert,
+ utilizzare questa input della variante per assegnare 
+ il colore del background giusto -->
