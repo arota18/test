@@ -54,7 +54,6 @@ export default class ReactiveTodoListComponent implements OnInit, OnDestroy {
     //   )
     //   .subscribe((responseOf) => console.log("merge responseOf", responseOf));
 
-
       //esercizio
       this.todoService.arrayNumbers$
       .pipe(
