@@ -1,0 +1,11 @@
+<div class="flex h-full w-full flex-col gap-y-4 p-6">
+  <h1 class="page-title">Reactive Todo edit</h1>
+  <input
+    type="text"
+    class="input input-primary"
+    placeholder="Modifica la label"
+    #inputRef
+    [(ngModel)]="des"
+  />
+  <button class="btn btn-primary" (click)="apply()">Applica</button>
+</div>

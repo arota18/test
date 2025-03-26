@@ -1,0 +1,11 @@
+<div class="h-full w-full p-6 flex flex-col gap-y-4">
+  <h1 class="page-title">Todo edit</h1>
+  <input
+    type="text"
+    class="input input-primary"
+    placeholder="Modifica la label"
+    #inputRef
+    [(ngModel)]="des"
+  />
+  <button class="btn btn-primary" (click)="apply()">Applica</button>
+</div>

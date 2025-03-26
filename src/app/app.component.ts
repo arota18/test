@@ -1,7 +1,8 @@
 import { CommonModule } from "@angular/common";
-import { Component } from "@angular/core";
-import { RouterOutlet } from "@angular/router";
+import { Component, inject, OnInit } from "@angular/core";
+import { Router, RouterOutlet } from "@angular/router";
 import { AlertComponent } from "./components/alert/alert.component";
+import { CounterComponent } from "./components/counter/counter.component";
 import { PhoneComponent } from "./components/phone/phone.component";
 import {
   TimelineComponent,
@@ -13,14 +14,18 @@ import {
   imports: [
     RouterOutlet,
     CommonModule,
-    PhoneComponent,
-    TimelineComponent,
-    AlertComponent,
+    // PhoneComponent,
+    // TimelineComponent,
+    // AlertComponent,
+    // CounterComponent
   ],
   templateUrl: "./app.component.html",
   styles: [],
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
+
+  private readonly _router = inject(Router);
+
   imageUrl = "https://img.daisyui.com/images/stock/453966.webp";
   alt = "wallpaper";
 
@@ -29,6 +34,11 @@ export class AppComponent {
     { start: "2015", end: "Luigi" },
     { start: "2020", end: "Gigi" },
   ];
+
+  ngOnInit(): void {
+    // this._router.navigateByUrl('todo-list');
+    this._router.navigateByUrl('reactive-todo-list');
+  }
 
   onDenyHandler() {
     window.alert("Deny");

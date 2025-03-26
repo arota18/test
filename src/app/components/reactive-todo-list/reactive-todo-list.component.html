@@ -1,5 +1,5 @@
 <div class="h-full w-full p-6">
-  <h1 class="page-title">Todo List with Signals</h1>
+  <h1 class="page-title">Reactive Todo List with Signals</h1>
   <!-- <div class="mb-4">
     Todo completate: {{ todosCompleted() }} | Todo rimanenti: {{ todosLeft() }}
   </div> -->
@@ -12,7 +12,7 @@
   />
   <hr class="my-4 text-blue-500" />
   <ul class="mt-10">
-    @for (todo of todoService.todos(); track todo.id) {
+    @for (todo of (todoService.todos$ | async); track todo.id) {
       <li class="flex justify-between">
         <div class="flex items-center gap-4">
           <input
