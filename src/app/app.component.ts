@@ -1,13 +1,7 @@
 import { CommonModule } from "@angular/common";
 import { Component, inject, OnInit } from "@angular/core";
 import { Router, RouterOutlet } from "@angular/router";
-import { AlertComponent } from "./components/alert/alert.component";
-import { CounterComponent } from "./components/counter/counter.component";
-import { PhoneComponent } from "./components/phone/phone.component";
-import {
-  TimelineComponent,
-  TimelineItem,
-} from "./components/timeline/timeline.component";
+import { TimelineItem } from "./components/timeline/timeline.component";
 
 @Component({
   selector: "app-root",
@@ -22,8 +16,7 @@ import {
   templateUrl: "./app.component.html",
   styles: [],
 })
-export class AppComponent implements OnInit{
-
+export class AppComponent implements OnInit {
   private readonly _router = inject(Router);
 
   imageUrl = "https://img.daisyui.com/images/stock/453966.webp";
@@ -37,7 +30,7 @@ export class AppComponent implements OnInit{
 
   ngOnInit(): void {
     // this._router.navigateByUrl('todo-list');
-    this._router.navigateByUrl('reactive-todo-list');
+    // this._router.navigateByUrl("reactive-todo-list");
   }
 
   onDenyHandler() {

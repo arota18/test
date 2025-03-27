@@ -1,39 +1,32 @@
 <div class="h-full w-full p-6">
   <h1 class="page-title">Todo List with Signals</h1>
+  <a [routerLink]="['/todo-list/15']">cambia pagina</a>
   <!-- <div class="mb-4">
     Todo completate: {{ todosCompleted() }} | Todo rimanenti: {{ todosLeft() }}
   </div> -->
-  <input
-    type="text"
-    class="input input-primary"
-    placeholder="Aggiungi un todo item"
-    #inputRef
-    (keydown.enter)="addTodo(inputRef)"
-  />
+  <input type="text" class="input input-primary" placeholder="Aggiungi un todo item" #inputRef
+    (keydown.enter)="addTodo(inputRef)" />
   <hr class="my-4 text-blue-500" />
   <ul class="mt-10">
     @for (todo of todoService.todos(); track todo.id) {
-      <li class="flex justify-between">
-        <div class="flex items-center gap-4">
-          <input
-            type="checkbox"
-            [checked]="todo.completed"
-            (change)="toggleTodo(todo)"
-          />
-          <span [ngClass]="{ 'line-through': todo.completed }">{{
-            todo.title
+    <li class="flex justify-between">
+      <div class="flex items-center gap-4">
+        <input type="checkbox" [checked]="todo.completed" (change)="toggleTodo(todo)" />
+        <span [ngClass]="{ 'line-through': todo.completed }">{{
+          todo.title
           }}</span>
-        </div>
-        <button class="cursor-pointer" (click)="removeTodo(todo)">
-          <span class="material-symbols-outlined"> delete </span>
-        </button>
-        <button class="cursor-pointer" (click)="editTodo(todo)">
-          <span class="material-symbols-outlined"> edit </span>
-        </button>
-      </li>
+      </div>
+      <button class="cursor-pointer" (click)="removeTodo(todo)">
+        <span class="material-symbols-outlined"> delete </span>
+      </button>
+      <button class="cursor-pointer" (click)="editTodo(todo)">
+        <span class="material-symbols-outlined"> edit </span>
+      </button>
+    </li>
     }
   </ul>
   <!-- <pre>
     {{ todos() | json }}
   </pre> -->
+  <router-outlet />
 </div>

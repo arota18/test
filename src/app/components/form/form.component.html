@@ -1,0 +1,36 @@
+<div class="flex gap-10">
+    <form #form="ngForm" class="flex flex-col gap-4">
+        <input class="input input-primary" type="text" #nome="ngModel" [(ngModel)]="studente.nome" name="nome"
+            minlength="4" />
+        <p [hidden]="nome.pristine || nome.valid">Il nome deve contenere minimo 4 caratteri</p>
+        <input class="input input-primary" type="text" [(ngModel)]="studente.cognome" name="cognome"
+            appNumChar="rossi" />
+        <div>
+            <input type="checkbox" #check="ngModel" [(ngModel)]="studente.check" name="check" />
+            @if (check.value) {
+            <input class="input input-primary" type="text" [(ngModel)]="studente.mail" name="mail" required email />
+            }
+        </div>
+
+        <pre> {{ form.value | json }} </pre>
+        <span> form valida: {{form.valid}} </span>
+        <button class="btn btn-primary" (click)="reset()">reset form</button>
+
+    </form>
+
+    <form [formGroup]="reactiveForm" class="flex flex-col gap-4">
+        <input class="input input-primary" type="text" formControlName="nome" />
+        <p [hidden]="reactiveForm.controls['nome'].pristine || reactiveForm.controls['nome'].valid">Il nome deve
+            contenere
+            minimo 4 caratteri</p>
+        <input class="input input-primary" type="text" formControlName="cognome" />
+
+        <div>
+            <input type="checkbox" (change)="aggiornaForm($event)" />
+
+        </div>
+        <!-- <input class="input input-primary" type="text" formControlName="mail" /> -->
+        <pre> {{ reactiveForm.value | json }} </pre>
+        <span> form valida: {{reactiveForm.valid}} </span>
+    </form>
+</div>
